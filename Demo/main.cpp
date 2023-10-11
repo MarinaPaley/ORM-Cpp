@@ -1,48 +1,61 @@
 #include <iostream>
 #include <memory>
+#include <locale>
 #include "..\Domain\Employee.h"
 #include "..\Domain\Employer.h"
 #include "..\Domain\Position.h"
 #include "..\Domain\Project.h"
+
+// The employee class holds shared pointers
+// to employer, position, and projects. All other objects hold weak
+// pointers back to the employee object. The weak sides are also the
+// ones that are made inverse.
+//
+// The following bidirectional relationships are used:
+//
+// many-to-one  : employee <--> employer
+// one-to-one   : employee <--> position
+// many-to-many : employee <--> project
 
 using namespace rut::cip::paley;
 using namespace std;
 
 int main()
 {
+    setlocale(LC_ALL, "ru");
     // Simple Tech Ltd.
-    shared_ptr<Employer> er(new Employer("Simple Tech Ltd"));
+    shared_ptr<Employer> simpleTech(new Employer("Simple Tech Ltd"));
 
-    shared_ptr<Position> he(new Position("Hardware Engineer"));
-    shared_ptr<Position> se(new Position("Software Engineer"));
+    shared_ptr<Position> hardwareEngeneering(new Position("Hardware Engineer"));
+    shared_ptr<Position> softwareEngeneering(new Position("Software Engineer"));
 
-    shared_ptr<Project> sh(new Project("Simple Hardware"));
-    shared_ptr<Project> ss(new Project("Simple Software"));
+    shared_ptr<Project> simpleHardware(new Project("Simple Hardware"));
+    shared_ptr<Project> simpleSoftware(new Project("Simple Software"));
 
-    shared_ptr<Employee> john(new Employee("John", "Doe", 25, er, he));
-    shared_ptr<Employee> jane(new Employee("Jane", "Doe", 30, er, se));
+    shared_ptr<Employee> john(new Employee("John", "Doe", 25, simpleTech, hardwareEngeneering));
+    shared_ptr<Employee> jane(new Employee("Jane", "Doe", 30, simpleTech, softwareEngeneering));
 
     // Set the inverse side of the employee-Employer relationship.
     //
-    er->GetEmployees().push_back(john);
-    er->GetEmployees().push_back(jane);
+    simpleTech->GetEmployees().push_back(john);
+    simpleTech->GetEmployees().push_back(jane);
 
     // Set the inverse side of the employee-position relationship.
     //
-    he->SetEmployee(john);
-    se->SetEmployee(jane);
+    hardwareEngeneering->SetEmployee(john);
+    softwareEngeneering->SetEmployee(jane);
 
     // Set the employee-project relationship (both directions).
     //
-    john->GetProjects().push_back(sh);
-    john->GetProjects().push_back(ss);
-    jane->GetProjects().push_back(ss);
+    john->GetProjects().push_back(simpleHardware);
+    john->GetProjects().push_back(simpleSoftware);
+    jane->GetProjects().push_back(simpleSoftware);
 
-    sh->GetEmployees().push_back(john);
-    ss->GetEmployees().push_back(john);
-    ss->GetEmployees().push_back(jane);
+    simpleHardware->GetEmployees().push_back(john);
+    simpleSoftware->GetEmployees().push_back(john);
+    simpleSoftware->GetEmployees().push_back(jane);
 
-    std::cout << john << "\n" << jane << "\n";
+    std::cout << *john << "\n" << *jane << "\n";
 
     shared_ptr<Employer> complexSystems(new Employer("Complex Systems Inc"));
 
@@ -75,7 +88,7 @@ int main()
     complesSoftware->GetEmployees().push_back(johnSmith);
     complesSoftware->GetEmployees().push_back(janeSmith);
 
-    std::cout << johnSmith << "\n" << janeSmith << "\n";
+    std::cout << *johnSmith << "\n" << *janeSmith << "\n";
 
     return 0;
 }

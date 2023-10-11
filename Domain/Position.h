@@ -6,6 +6,8 @@
 // one-to-one   : employee <--> position
 namespace rut::cip::paley
 {
+    class Employee;
+
     class Position;
     std::ostream& operator <<(std::ostream& out, const Position& position);
 

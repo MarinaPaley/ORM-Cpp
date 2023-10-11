@@ -5,9 +5,11 @@
 #include "Employee.h"
 
 // many-to-many : employee <--> project
+
 namespace rut::cip::paley
 {
     class Project;
+
     std::ostream& operator <<(std::ostream& out, const Project& project);
 
     class Project

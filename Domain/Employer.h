@@ -8,6 +8,8 @@
 // many-to-one  : employee <--> Employer
 namespace rut::cip::paley
 {
+    class Employee;
+
     class Employer;
     std::ostream& operator<<(std::ostream& out, const Employer& employer);
 

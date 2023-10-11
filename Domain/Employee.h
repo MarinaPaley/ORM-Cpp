@@ -9,8 +9,12 @@
 // many-to-many : employee <--> project
 // one-to-one   : employee <--> position
 
-namespace rut::cip::paley 
+namespace rut::cip::paley
 {
+    class Employer;
+    class Position;
+    class Project;
+
     /**
      * @brief Сотрудник.
     */
@@ -39,6 +43,8 @@ namespace rut::cip::paley
         std::vector<std::shared_ptr<Project>>& GetProjects() noexcept;
 
         std::string ToString() const noexcept;
+        friend std::ostream& operator<<(std::ostream& out, const Employee& employee);
+
     private:
         std::string firstName;
         std::string lastName;
@@ -47,5 +53,4 @@ namespace rut::cip::paley
         std::shared_ptr<Position> position;
         std::vector<std::shared_ptr<Project>> projects;
     };
-
 }

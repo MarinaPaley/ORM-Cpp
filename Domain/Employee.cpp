@@ -77,10 +77,10 @@ namespace rut::cip::paley
     {
         std::stringstream buffer{};
         buffer << this->GetFirstName() << " " << this->GetLastName() << " " << this->GetAge() << "\n";
-        buffer << "Работодатель " << this->employer << "\n";
-        buffer << "Должность " << this->position << "]n";
+        buffer << "Работодатель " << this->employer->ToString() << "\n";
+        buffer << "Должность " << this->position->ToString() << "\n";
 
-        buffer << "Проекты: " << "\n{ ";
+        buffer << "Проекты: " << "\n\t{ ";
         for (auto it = this->GetProjects().cbegin(); it != this->GetProjects().cend(); ++it)
         {
             buffer << (*it)->ToString() << " ";
@@ -88,5 +88,11 @@ namespace rut::cip::paley
         buffer << " }\n";
 
         return buffer.str();
+    }
+
+    std::ostream& operator<<(std::ostream& out, const Employee& employee)
+    {
+        out << employee.ToString();
+        return out;
     }
 }
