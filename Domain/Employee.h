@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <memory>
 #include <vector>
 #include "Person.h"
@@ -16,7 +16,7 @@ namespace rut::cip::paley
     class Project;
 
     /**
-     * @brief Сотрудник.
+     * @brief РЎРѕС‚СЂСѓРґРЅРёРє.
     */
     class Employee
     {

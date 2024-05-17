@@ -1,4 +1,4 @@
-#include <stdexcept>
+ï»¿#include <stdexcept>
 #include <sstream>
 #include "Person.h"
 
@@ -31,7 +31,7 @@ void rut::cip::paley::Person::SetAge(const short age)
 {
     if (age < 0)
     {
-        throw std::logic_error("Íåïðàâèëüíûé âîçðàñò!");
+        throw std::logic_error("ÐÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚!");
     }
 
     this->age = age;

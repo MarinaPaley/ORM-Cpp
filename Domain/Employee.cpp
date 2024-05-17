@@ -1,4 +1,4 @@
-#include <sstream>
+ï»¿#include <sstream>
 #include <memory>
 #include <vector>
 #include "Employee.h"
@@ -37,7 +37,7 @@ namespace rut::cip::paley
 
         if (age < 0)
         {
-            throw std::logic_error("Íåïðàâèëüíûé âîçðàñò!");
+            throw std::logic_error("ÐÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚!");
         }
 
         this->age = age;
@@ -77,10 +77,10 @@ namespace rut::cip::paley
     {
         std::stringstream buffer{};
         buffer << this->GetFirstName() << " " << this->GetLastName() << " " << this->GetAge() << "\n";
-        buffer << "Ðàáîòîäàòåëü " << this->employer->ToString() << "\n";
-        buffer << "Äîëæíîñòü " << this->position->ToString() << "\n";
+        buffer << "Ð Ð°Ð±Ð¾Ñ‚Ð¾Ð´Ð°Ñ‚ÐµÐ»ÑŒ " << this->employer->ToString() << "\n";
+        buffer << "Ð”Ð¾Ð»Ð¶Ð½Ð¾ÑÑ‚ÑŒ " << this->position->ToString() << "\n";
 
-        buffer << "Ïðîåêòû: " << "\n\t{ ";
+        buffer << "ÐŸÑ€Ð¾ÐµÐºÑ‚Ñ‹: " << "\n\t{ ";
         for (auto it = this->GetProjects().cbegin(); it != this->GetProjects().cend(); ++it)
         {
             buffer << (*it)->ToString() << " ";

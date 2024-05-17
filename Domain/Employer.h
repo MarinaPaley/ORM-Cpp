@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <memory>
 #include <vector>
 #include <string>
@@ -14,7 +14,7 @@ namespace rut::cip::paley
     std::ostream& operator<<(std::ostream& out, const Employer& employer);
 
     /**
-     * @brief Ðàáîòîäàòåëü.
+     * @brief Ð Ð°Ð±Ð¾Ñ‚Ð¾Ð´Ð°Ñ‚ÐµÐ»ÑŒ.
     */
     class Employer
     {
@@ -30,7 +30,7 @@ namespace rut::cip::paley
         std::string name;
 
         /**
-         * @brief Ñîòðóäíèêè ýòîãî ðàáîòîäàòåëÿ.
+         * @brief Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸ ÑÑ‚Ð¾Ð³Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ð¾Ð´Ð°Ñ‚ÐµÐ»Ñ.
         */
         std::vector<std::weak_ptr<Employee>> employees;
     };

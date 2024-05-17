@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 #include "Project.h"
 
 namespace rut::cip::paley 

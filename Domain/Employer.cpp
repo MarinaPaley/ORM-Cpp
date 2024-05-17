@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 #include "Employer.h"
 namespace rut::cip::paley
 {

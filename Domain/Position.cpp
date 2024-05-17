@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 #include "Position.h"
 
 namespace rut::cip::paley
