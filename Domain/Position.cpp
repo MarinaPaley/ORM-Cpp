@@ -3,12 +3,12 @@
 
 namespace rut::cip::paley
 {
-        Position::Position(const std::string & position)
+    Position::Position(const std::string & position)
         : position{ position }
     {
     }
 
-    const std::string Position::GetPosition() const noexcept
+    std::string Position::GetPosition() const noexcept
     {
         return this->position;
     }

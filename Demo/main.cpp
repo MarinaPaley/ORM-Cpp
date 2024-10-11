@@ -1,10 +1,10 @@
 #include <iostream>
 #include <memory>
 #include <locale>
-#include "..\Domain\Employee.h"
-#include "..\Domain\Employer.h"
-#include "..\Domain\Position.h"
-#include "..\Domain\Project.h"
+#include "../Domain/Employee.h"
+#include "../Domain/Employer.h"
+#include "../Domain/Position.h"
+#include "../Domain/Project.h"
 
 // The employee class holds shared pointers
 // to employer, position, and projects. All other objects hold weak
@@ -22,18 +22,18 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "ru");
+    //setlocale(LC_ALL, "ru");
     // Simple Tech Ltd.
-    shared_ptr<Employer> simpleTech(new Employer("Simple Tech Ltd"));
+    auto simpleTech(std::make_shared<Employer>("Simple Tech Ltd"));
 
-    shared_ptr<Position> hardwareEngeneering(new Position("Hardware Engineer"));
-    shared_ptr<Position> softwareEngeneering(new Position("Software Engineer"));
+    auto hardwareEngeneering(std::make_shared<Position>("Hardware Engineer"));
+    auto softwareEngeneering(std::make_shared<Position>("Software Engineer"));
 
-    shared_ptr<Project> simpleHardware(new Project("Simple Hardware"));
-    shared_ptr<Project> simpleSoftware(new Project("Simple Software"));
+    auto simpleHardware(std::make_shared<Project>("Simple Hardware"));
+    auto simpleSoftware(std::make_shared<Project>("Simple Software"));
 
-    shared_ptr<Employee> john(new Employee("John", "Doe", 25, simpleTech, hardwareEngeneering));
-    shared_ptr<Employee> jane(new Employee("Jane", "Doe", 30, simpleTech, softwareEngeneering));
+    auto john(std::make_shared<Employee>("John", "Doe", 25, simpleTech, hardwareEngeneering));
+    auto jane(std::make_shared<Employee>("Jane", "Doe", 30, simpleTech, softwareEngeneering));
 
     // Set the inverse side of the employee-Employer relationship.
     //
@@ -57,16 +57,16 @@ int main()
 
     std::cout << *john << "\n" << *jane << "\n";
 
-    shared_ptr<Employer> complexSystems(new Employer("Complex Systems Inc"));
+    auto complexSystems(std::make_shared<Employer>("Complex Systems Inc"));
 
-    shared_ptr<Position> hardware(new Position("Hardware Engineer"));
-    shared_ptr<Position> software(new Position("Software Engineer"));
+    auto hardware(std::make_shared<Position>("Hardware Engineer"));
+    auto software(std::make_shared<Position>("Software Engineer"));
 
-    shared_ptr<Project> complexHardware(new Project("Complex Hardware"));
-    shared_ptr<Project> complesSoftware(new Project("Complex Software"));
+    auto complexHardware(std::make_shared<Project>("Complex Hardware"));
+    auto complesSoftware(std::make_shared<Project>("Complex Software"));
 
-    shared_ptr<Employee> johnSmith(new Employee("John", "Smith", 32, complexSystems, software));
-    shared_ptr<Employee> janeSmith(new Employee("Jane", "Smith", 35, complexSystems, hardware));
+    auto johnSmith(std::make_shared<Employee>("John", "Smith", 32, complexSystems, software));
+    auto janeSmith(std::make_shared<Employee>("Jane", "Smith", 35, complexSystems, hardware));
 
     // Set the inverse side of the employee-employer relationship.
     //

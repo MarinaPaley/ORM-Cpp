@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <memory>
 #include <string>
 #include "Employee.h"
@@ -15,7 +15,7 @@ namespace rut::cip::paley
     {
     public:
         Position(const std::string& position);
-        const std::string GetPosition() const noexcept;
+        std::string GetPosition() const noexcept;
 
         const std::weak_ptr<Employee>& GetEmployees() const noexcept;
 
@@ -26,7 +26,7 @@ namespace rut::cip::paley
         std::string position;
 
         /**
-         * @brief Сотрудник, занимающий данную должность. Если свободна, то \c nullptr.
+         * @brief РЎРѕС‚СЂСѓРґРЅРёРє, Р·Р°РЅРёРјР°СЋС‰РёР№ РґР°РЅРЅСѓСЋ РґРѕР»Р¶РЅРѕСЃС‚СЊ. Р•СЃР»Рё СЃРІРѕР±РѕРґРЅР°, С‚Рѕ \c nullptr.
         */
         std::weak_ptr<Employee> employee;
     };

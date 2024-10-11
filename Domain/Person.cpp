@@ -31,7 +31,7 @@ void rut::cip::paley::Person::SetAge(const short age)
 {
     if (age < 0)
     {
-        throw std::logic_error("Неправильный возраст!");
+        throw std::logic_error("Wrong age!");
     }
 
     this->age = age;
